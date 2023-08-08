@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 
 import Providers from '../components/Provider'
 import { cn } from '../lib/utils'
+import Navbar from '../components/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn(inter.className )} >
         <Providers>
+          <Navbar />
 
            {children}
 

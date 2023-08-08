@@ -38,6 +38,7 @@ export const authOptions: NextAuthOptions = {
     adapter:PrismaAdapter(prisma),
     callbacks: {
         jwt: async ({ token }) => {
+            // console.log('the jwt is here: ' , token)
           const db_user = await prisma.user.findFirst({
             where: {
               email: token?.email,
@@ -50,6 +51,7 @@ export const authOptions: NextAuthOptions = {
         },
         // the type here will be modified later on 
         session: ({ session, token } : {session: any , token: any}) => {
+            // console.log("The session here: " , session,token)
           if (token) {
             session.user.id = token.id;
             session.user.name = token.name;
